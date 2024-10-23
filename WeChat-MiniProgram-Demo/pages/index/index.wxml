@@ -1,0 +1,69 @@
+<view class="wrap">  
+    <view class="contant_wrap">  
+        <view class="contant">  
+            <textarea name="bindTextAreaBlur" bindblur="bindTextAreaBlur" auto-height placeholder="对于此情景做出的决策" maxlength="600"></textarea>  
+        </view>  
+
+       
+        <view>
+  <swiper indicator-dots="true" autoplay="true">
+    <block wx:for="{{images}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" mode="aspectFill" style="width: 100%; height: 300rpx;"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+
+
+
+        <view class="contant-pic">  
+            <view class="pics-list" wx:for="{{pics}}" wx:key="">  
+                <image src="{{item}}" class="uploadImg"></image>  
+                <image src="../../images/delete.png" class="uploadImg-error" data-img="{{item}}" bindtap='deleteImg'></image>  
+            </view>  
+            <image src="../../images/uploadImg.png" class="uploadImg {{isShow ? 'true' : 'hideTrue'}}" bindtap='uploadImage'></image>  
+        </view>  
+    </view>  
+
+    <view class="phone">  
+        <input name="inputtime" bindinput="inputtime" placeholder="该场景发生的时间" />  
+    </view>  
+</view>
+
+<view>
+    <!--导航栏-->  
+    <AI wx:if="{{pageCur == 'AI'}}"></AI>  
+      <watch wx:if="{{pageCur == 'watch'}}"></watch>  
+      <images wx:if="{{pageCur == 'images'}}"></images>   
+      <login wx:if="{{pageCur == 'login'}}"></login>
+
+  <view class="fu-bar shadow foot">
+    <view class="cell" bindtap="navChange_images" data-cur="images">
+      <view class="image">
+        <image src="/images/images/images{{pageCur == 'images' ? '(1)' : ''}}.png"></image>
+      </view>
+      <view class="{{pageCur == 'images' ? 'text-blue' : 'text-gray'}}">图片</view>
+    </view>
+    <view class="cell" bindtap="navChange_AI" data-cur="AI">
+      <view class="image">
+        <image src="/images/AI/AI{{pageCur == 'AI' ? '(1)' : ''}}.png"></image>
+      </view>
+      <view class="{{pageCur == 'AI' ? 'text-blue' : 'text-gray'}}">AI助手</view>
+    </view>
+    <view class="cell" bindtap="navChange_watch" data-cur="watch">
+      <view class="image">
+        <image src="/images/watch/watch{{pageCur == 'watch' ? '(1)' : ''}}.png"></image>
+      </view>
+      <view class="{{pageCur == 'watch' ? 'text-blue' : 'text-gray'}}">视频</view>
+    </view>
+    <view class="cell" bindtap="navChange_login" data-cur="login">
+      <view class="image">
+        <image src="/images/login/user{{pageCur == 'login' ? '(1)' : ''}}.png"></image>
+      </view>
+      <view class="{{pageCur == 'login' ? 'text-blue' : 'text-gray'}}">用户</view>
+    </view>
+  </view>
+</view>

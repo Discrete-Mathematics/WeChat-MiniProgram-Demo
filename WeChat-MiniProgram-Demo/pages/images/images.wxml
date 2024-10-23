@@ -1,0 +1,28 @@
+<!--pages/index/index.wxml-->
+<view class="wrap">
+    <view class="contant_wrap">
+    <view class="contant">
+        <textarea name="bindTextAreaBlur" bindblur="bindTextAreaBlur" auto-height placeholder="对于此情景做出的决策" maxlength="600">
+        </textarea>
+    </view>
+
+    <view class="container">  
+      <image class="photo" src="{{src}}" mode="aspectFit"></image>  
+      <button class="upload-button" bindtap="uploadPhoto">上传照片</button>  
+    </view>
+
+    <view class="contant-pic">
+        <view class="pics-list" wx:for="{{pics}}" wx:key="" >
+            <image src="{{item}}" class="uploadImg"></image>
+            <image src="../../images/delete.png" class="uploadImg-error" data-img="{{item}}" bindtap='deleteImg'></image>
+        </view>
+
+    <image src="../../images/uploadImg.png" class="uploadImg {{isShow?'true':'hideTrue'}}" bindtap='uploadImage' ></image>
+    </view>
+    
+    </view>
+        <view class="phone">
+            <input name="inputtime" bindinput="inputtime" placeholder="该场景发生的时间" />
+        </view>
+
+</view>
